@@ -233,7 +233,7 @@ def add_new_post():
                            is_logged=current_user.is_authenticated)
 
 
-@app.route("/edit-post/<int:post_id>")
+@app.route("/edit-post/<int:post_id>", methods=['GET', 'POST'])
 @admin_only
 def edit_post(post_id):
     post = BlogPost.query.get(post_id)
@@ -257,7 +257,7 @@ def edit_post(post_id):
                            is_logged=current_user.is_authenticated)
 
 
-@app.route("/delete/<int:post_id>")
+@app.route("/delete/<int:post_id>", methods=['GET', 'POST'])
 @admin_only
 def delete_post(post_id):
     post_to_delete = BlogPost.query.get(post_id)
